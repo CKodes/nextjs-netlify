@@ -1,6 +1,8 @@
 import { Metadata } from 'next'
-import { getPageFromSlug } from '../../../lib/notion'
+import { Fragment } from 'react'
+import { getPageFromSlug, getBlocks } from '../../../lib/notion'
 import { checkTestCodesFolder, saveResultsJson } from '../../../lib/saveJson'
+import { renderBlock } from '../../../lib/renderer'
 
 type Props = {
   params: { slug: string }
@@ -28,14 +30,21 @@ export default async function Page({ params }: { params: any }) {
 
   const { page, pageTitle } = await getPageAndTitle(params.slug)
 
-  if (!page) {
+  const blocks = await getBlocks(page?.id)
+
+  if (!page || !blocks) {
     return <div />
   }
-  saveResultsJson('page.json', page)
+  saveResultsJson('blocks.json', blocks)
 
   return (
     <main>
       <h1>{pageTitle}</h1>
+      <section>
+        {blocks.map((block) => (
+          <Fragment key={block.id}>{renderBlock(block)}</Fragment>
+        ))}
+      </section>
     </main>
   )
 }
