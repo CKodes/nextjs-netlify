@@ -3,18 +3,25 @@ import { getDatabase } from '../lib/notion'
 async function getPosts() {
   const database = await getDatabase()
 
-  return database
+  const testingPageData = database.filter((dBase: any) => {
+    // Filters pages with tag testing-page
+    return dBase.properties.Tags.rich_text.some(
+      (tag: any) => tag.plain_text === 'testing-page'
+    )
+  })
+
+  return { database, testingPageData }
 }
 
 export default async function LandingPage() {
-  const posts: any = await getPosts()
+  const { testingPageData } = await getPosts()
 
   return (
     <>
       <main>
         <h1>Page Titles</h1>
         <ul>
-          {posts.map((post: any) => {
+          {testingPageData.map((post: any) => {
             const pageTitle = post.properties.Title.title[0].plain_text
             return (
               <li key={post.id}>
