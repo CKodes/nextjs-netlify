@@ -1,33 +1,41 @@
-import Head from 'next/head'
-import { getDatabase, getPageFromSlug } from '../../../lib/notion'
+import { Metadata } from 'next'
+import { getPageFromSlug } from '../../../lib/notion'
+import { checkTestCodesFolder, saveResultsJson } from '../../../lib/saveJson'
 
-export async function generateStaticParams() {
-  const database = await getDatabase()
-  return database?.map((page: any) => {
-    const slug = page.properties.Slug.rich_text[0].plain_text
-    return { id: page.id, slug }
-  })
+type Props = {
+  params: { slug: string }
+}
+
+async function getPageAndTitle(
+  slug: string
+): Promise<{ page: any; pageTitle: string }> {
+  const page: any = await getPageFromSlug(slug)
+  const pageTitle: string = page.properties.Title.title[0].plain_text
+  return { page, pageTitle }
+}
+
+// Dynamically update title for each page
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { pageTitle } = await getPageAndTitle(params.slug)
+
+  return {
+    title: pageTitle,
+  }
 }
 
 export default async function Page({ params }: { params: any }) {
-  const page: any = await getPageFromSlug(params?.slug)
-  const pageTitle: string = page.properties.Title.title[0].plain_text
+  checkTestCodesFolder()
+
+  const { page, pageTitle } = await getPageAndTitle(params.slug)
 
   if (!page) {
     return <div />
   }
+  saveResultsJson('page.json', page)
 
   return (
-    <div>
-      <Head>
-        {/* 
-        // FIXME: Dynamic title not reflecting on layout.tsx
-        */}
-        <title>{pageTitle}</title>
-      </Head>
-      <main>
-        <h1>{pageTitle}</h1>
-      </main>
-    </div>
+    <main>
+      <h1>{pageTitle}</h1>
+    </main>
   )
 }
