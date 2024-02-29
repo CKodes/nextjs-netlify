@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { getDatabase } from '../lib/notion'
 
 async function getPosts() {
@@ -23,9 +24,16 @@ export default async function LandingPage() {
         <ul>
           {testingPageData.map((post: any) => {
             const pageTitle = post.properties.Title.title[0].plain_text
+            const slug = post.properties?.Slug?.rich_text[0].text.content
             return (
               <li key={post.id}>
-                <h2>{pageTitle}</h2>
+                <Link
+                  href={`/article/${slug}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <h2>{pageTitle}</h2>
+                </Link>
               </li>
             )
           })}
