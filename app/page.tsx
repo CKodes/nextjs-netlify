@@ -1,9 +1,29 @@
-import styles from './page.module.css'
+import { getDatabase } from '../lib/notion'
 
-export default function Home() {
+async function getPosts() {
+  const database = await getDatabase()
+
+  return database
+}
+
+export default async function LandingPage() {
+  const posts: any = await getPosts()
+
   return (
-    <main className={styles.main}>
-      <h1>Hello World</h1>
-    </main>
+    <>
+      <main>
+        <h1>Page Titles</h1>
+        <ul>
+          {posts.map((post: any) => {
+            const pageTitle = post.properties.Title.title[0].plain_text
+            return (
+              <li key={post.id}>
+                <h2>{pageTitle}</h2>
+              </li>
+            )
+          })}
+        </ul>
+      </main>
+    </>
   )
 }
