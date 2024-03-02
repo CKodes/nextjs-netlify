@@ -1,8 +1,5 @@
 /* ----- This file contains the Notion API usage --- */
 
-// TODO: REMOVE THESE TESTCODES WHEN RAISING PR
-import { checkTestCodesFolder, saveResultsJson } from './saveJson'
-
 import { Client } from '@notionhq/client'
 
 const databaseId = process.env.NOTION_DATABASE_ID
@@ -12,16 +9,13 @@ const notion = new Client({
 })
 
 export const getDatabase = async () => {
-  checkTestCodesFolder()
   const response = await notion.databases.query({
     database_id: databaseId as any,
   })
-  saveResultsJson('getDatabase.json', response.results)
   return response.results
 }
 
 export const getPageFromSlug = async (slug: any) => {
-  checkTestCodesFolder()
   const response = await notion.databases.query({
     database_id: databaseId as any,
     filter: {
@@ -34,7 +28,6 @@ export const getPageFromSlug = async (slug: any) => {
     },
   })
   if (response?.results?.length) {
-    saveResultsJson('getPageFromSlug.json', response)
     return response?.results?.[0]
   }
   return {}

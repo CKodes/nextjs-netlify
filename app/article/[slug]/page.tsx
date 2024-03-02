@@ -1,6 +1,3 @@
-// TODO: REMOVE THESE TESTCODES WHEN RAISING PR
-import { checkTestCodesFolder, saveResultsJson } from '../../../lib/saveJson'
-
 import { Metadata } from 'next'
 import { Fragment } from 'react'
 import { getPageFromSlug, getBlocks } from '../../../lib/notion'
@@ -28,15 +25,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Page({ params }: { params: any }) {
-  checkTestCodesFolder()
-
   const { page, pageTitle } = await getPageAndTitle(params.slug)
   const blocks = await getBlocks(page?.id)
 
   if (!page || !blocks) {
     return <div />
   }
-  saveResultsJson('blocks.json', blocks)
 
   return (
     <main>
