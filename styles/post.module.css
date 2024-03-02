@@ -1,0 +1,93 @@
+/* START annotatedText css */
+.bold {
+  font-weight: bold;
+}
+
+.code {
+  padding: 2px 4px;
+  border-radius: 2px;
+  background-color: rgb(242, 242, 242);
+  font-family: monospace;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.strikethrough {
+  text-decoration: line-through;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+/* END annotatedText css */
+
+/* START renderer css */
+
+.childPage {
+  padding: 20px;
+  border: 1px solid currentColor;
+  border-radius: 12px;
+}
+
+.pre {
+  margin: 20px 0;
+  padding: 2px 4px;
+  border-radius: 12px;
+  background-color: rgb(242, 242, 242);
+  line-height: 2.3;
+  overflow: auto;
+}
+
+.code_block {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+  font-family: monospace;
+}
+
+.file {
+  padding: 2px 4px;
+  text-decoration: none;
+}
+
+.file a {
+  color: inherit;
+}
+
+.file:hover {
+  border-radius: 2px;
+  background: rgba(55, 53, 47, 0.08);
+  cursor: pointer;
+}
+
+.bookmark {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.table {
+  border: 1px solid currentColor;
+  border-collapse: collapse;
+}
+.table th {
+  padding: 6px 12px;
+  border: 1px solid currentColor;
+  background-color: rgb(242, 242, 242);
+}
+.table td {
+  padding: 6px 12px;
+  border: 1px solid currentColor;
+}
+
+.row {
+  display: flex;
+}
+
+.row > div {
+  flex: 1;
+}
+
+/* END renderer css */
