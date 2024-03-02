@@ -1,5 +1,5 @@
-import { Fragment } from 'react'
 import Link from 'next/link'
+import { Fragment } from 'react'
 import Text from '../components/annotatedText'
 import styles from '../styles/post.module.css'
 

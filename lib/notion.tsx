@@ -1,7 +1,9 @@
 /* ----- This file contains the Notion API usage --- */
 
-import { Client } from '@notionhq/client'
+// TODO: REMOVE THESE TESTCODES WHEN RAISING PR
 import { checkTestCodesFolder, saveResultsJson } from './saveJson'
+
+import { Client } from '@notionhq/client'
 
 const databaseId = process.env.NOTION_DATABASE_ID
 

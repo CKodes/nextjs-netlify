@@ -1,5 +1,5 @@
 /* ----- Testcodes to save reponses of queries in JSON format --- */
-// TODO: REMOVE WHEN RAISING PR
+// TODO: REMOVE THIS TESTCODE FILE WHEN RAISING PR
 
 import fs from 'fs'
 import path from 'path'
