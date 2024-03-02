@@ -4,10 +4,10 @@
 }
 
 .code {
-  font-family: monospace;
-  background-color: rgb(242, 242, 242);
   padding: 2px 4px;
   border-radius: 2px;
+  background-color: rgb(242, 242, 242);
+  font-family: monospace;
 }
 
 .italic {
@@ -27,25 +27,25 @@
 /* START renderer css */
 
 .childPage {
-  border: 1px solid currentColor;
   padding: 20px;
+  border: 1px solid currentColor;
   border-radius: 12px;
 }
 
 .pre {
-  background-color: rgb(242, 242, 242);
-  padding: 2px 4px;
   margin: 20px 0;
-  line-height: 2.3;
+  padding: 2px 4px;
   border-radius: 12px;
+  background-color: rgb(242, 242, 242);
+  line-height: 2.3;
   overflow: auto;
 }
 
 .code_block {
-  padding: 20px;
-  font-family: monospace;
   display: flex;
   flex-wrap: wrap;
+  padding: 20px;
+  font-family: monospace;
 }
 
 .file {
@@ -58,9 +58,9 @@
 }
 
 .file:hover {
+  border-radius: 2px;
   background: rgba(55, 53, 47, 0.08);
   cursor: pointer;
-  border-radius: 2px;
 }
 
 .bookmark {
@@ -73,13 +73,13 @@
   border-collapse: collapse;
 }
 .table th {
+  padding: 6px 12px;
   border: 1px solid currentColor;
   background-color: rgb(242, 242, 242);
-  padding: 6px 12px;
 }
 .table td {
-  border: 1px solid currentColor;
   padding: 6px 12px;
+  border: 1px solid currentColor;
 }
 
 .row {
