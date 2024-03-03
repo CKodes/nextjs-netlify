@@ -1,0 +1,57 @@
+.centerContainer {
+  max-width: 1400px;
+  margin: auto;
+}
+
+.heroBackground {
+  position: relative;
+  height: 32rem;
+  background-color: lavender;
+}
+
+.heroContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  max-width: 1440px;
+  height: 25rem;
+  margin: auto;
+  padding: 0 3rem;
+}
+
+.heroContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.heroMessage {
+  text-align: start;
+}
+
+@media only screen and (max-width: 1199.98px) {
+  .heroMessage {
+    margin-right: 3rem;
+  }
+}
+
+@media only screen and (max-width: 767.98px) {
+  .heroBackground {
+    height: unset;
+  }
+
+  .heroContainer {
+    height: unset;
+    padding: 2rem;
+  }
+
+  .heroContent {
+    flex-direction: column;
+  }
+
+  .heroMessage {
+    margin-right: unset;
+    padding-bottom: 3rem;
+  }
+}
