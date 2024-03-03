@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { getDatabase, getBlocks } from '../lib/notion'
 import HeroContainer from '../components/Hero'
+import HeroCardsContainer from '../components/HeroCards'
 
 async function getPosts() {
   const database = await getDatabase()
@@ -36,6 +37,7 @@ export default async function LandingPage() {
           heroCta={heroCta}
           heroImage={heroImage}
         />
+        <HeroCardsContainer />
       </main>
     </>
   )
