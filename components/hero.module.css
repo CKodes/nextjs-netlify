@@ -1,4 +1,4 @@
-/* START Hero.tsx */
+/* Hero.tsx */
 
 .centerContainer {
   max-width: 1400px;
@@ -33,9 +33,7 @@
   text-align: start;
 }
 
-/* END Hero.tsx */
-
-/* START HeroCards.tsx */
+/* HeroCards.tsx */
 
 .offset {
   max-width: 1400px;
@@ -60,9 +58,7 @@
   padding: 1rem 0;
 }
 
-/* END HeroCards.tsx */
-
-/* START HighlightsCards.tsx */
+/* HighlightsCards.tsx */
 
 .heroCardItem {
   margin-top: calc(50px / 2);
@@ -89,6 +85,40 @@
   margin-top: 1rem;
 }
 
+/* News.tsx */
+
+.newsCenterContainer,
+.resourcesCenterContainer {
+  max-width: 1400px;
+  margin: auto;
+  padding: 4rem;
+}
+
+.newsContent {
+  display: flex;
+  gap: 5rem;
+  margin-top: 2rem;
+}
+
+.newsContent > * {
+  flex: 1 1;
+}
+
+.newsArchiveContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Resources.tsx */
+
+.resourcesContent {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
 /* Media Breakpoints */
 @media only screen and (max-width: 1199.98px) {
   .heroMessage {
@@ -98,6 +128,14 @@
   .heroCards {
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     gap: 5rem;
+  }
+
+  .resourcesContent {
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  }
+
+  .allArticlesBtn {
+    width: 100%;
   }
 }
 
@@ -124,10 +162,31 @@
     margin-top: unset;
     padding: 4rem 2rem;
   }
+
+  .newsCenterContainer,
+  .resourcesCenterContainer {
+    padding: 4rem 2rem;
+  }
+
+  .newsContent {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .newsArchiveSnippet {
+    padding: 1.5rem;
+    margin: 0.5rem 0;
+  }
 }
 
 @media only screen and (max-width: 575.98px) {
-  .heroCards {
+  .heroCards,
+  .resourcesContent {
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+
+  .newsCenterContainer,
+  .resourcesCenterContainer {
+    padding: 2rem;
   }
 }
