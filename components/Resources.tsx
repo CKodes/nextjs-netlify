@@ -24,8 +24,8 @@ export default function ResourcesContainer() {
               <span>Tags</span>
               <h3>Card Title</h3>
               <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
+                {`Some quick example text to build on the card title and make up
+                the bulk of the card's content.`}
               </Card.Text>
               <Card.Link href="#">Go somewhere</Card.Link>
             </Card.Body>
@@ -40,8 +40,8 @@ export default function ResourcesContainer() {
               <span>Tags</span>
               <h3>Card Title</h3>
               <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
+                {`Some quick example text to build on the card title and make up
+                the bulk of the card's content.`}
               </Card.Text>
               <Card.Link href="#">Go somewhere</Card.Link>
             </Card.Body>
@@ -56,8 +56,8 @@ export default function ResourcesContainer() {
               <span>Tags</span>
               <h3>Card Title</h3>
               <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
+                {`Some quick example text to build on the card title and make up
+                the bulk of the card's content.`}
               </Card.Text>
               <Card.Link href="#">Go somewhere</Card.Link>
             </Card.Body>
