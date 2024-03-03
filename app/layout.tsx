@@ -1,6 +1,11 @@
 import type { Metadata } from 'next'
 import { Viga } from 'next/font/google'
 import './globals.css'
+import {
+  MastheadSgds,
+  NavbarSgds,
+  FooterSgds,
+} from '@/components/sgds/coreComponents'
 
 const viga = Viga({
   weight: ['400'],
@@ -20,7 +25,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={viga.className}>{children}</body>
+      <body className={viga.className}>
+        <div id="root">
+          <MastheadSgds />
+          <NavbarSgds />
+          {children}
+          <FooterSgds />
+        </div>
+      </body>
     </html>
   )
 }
