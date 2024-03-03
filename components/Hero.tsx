@@ -2,7 +2,7 @@
 import '@govtechsg/sgds/css/sgds.css'
 import { Button } from '@govtechsg/sgds-react/Button'
 import Image from 'next/image'
-import styles from './hero.module.css'
+import styles from './landingpage.module.css'
 
 interface HeroContainerProps {
   heroTitle: string
