@@ -1,8 +1,12 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Viga } from 'next/font/google'
 import './globals.css'
 
-const inter = Inter({ subsets: ['latin'] })
+const viga = Viga({
+  weight: ['400'],
+  style: ['normal'],
+  subsets: ['latin'],
+})
 
 export const metadata: Metadata = {
   title: 'NextJS x Netlify',
@@ -16,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={viga.className}>{children}</body>
     </html>
   )
 }
