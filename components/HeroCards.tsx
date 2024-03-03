@@ -1,7 +1,7 @@
 'use client'
 import '@govtechsg/sgds/css/sgds.css'
 import HighlightsCard from './HighlightsCards'
-import styles from './landingpage.module.css'
+import styles from './landingPage.module.css'
 
 export default function HeroCardsContainer() {
   return (
