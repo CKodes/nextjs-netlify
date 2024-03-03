@@ -1,43 +1,47 @@
 import Link from 'next/link'
-import { getDatabase } from '../lib/notion'
+import { getDatabase, getBlocks } from '../lib/notion'
+import HeroContainer from '../components/Hero'
+import HeroCardsContainer from '../components/HeroCards'
+import NewsContainer from '../components/News'
+import ResourcesContainer from '../components/Resources'
 
 async function getPosts() {
   const database = await getDatabase()
-
-  const testingPageData = database.filter((dBase: any) => {
-    // Filters pages with tag testing-page
-    return dBase.properties.Tags.rich_text.some(
-      (tag: any) => tag.plain_text === 'testing-page'
-    )
-  })
-
-  return { database, testingPageData }
+  const heroPageData = database
+    .filter((dBase: any) => {
+      return dBase.properties.Tags.rich_text.some(
+        (tag: any) => tag.plain_text === 'hero'
+      )
+    })
+    .map((dBase: any) => {
+      return {
+        heroPageId: dBase.id,
+        heroTitle: dBase.properties.Title.title[0].text.content,
+        heroCta: dBase.properties.CTA.rich_text[0].plain_text,
+      }
+    })
+  return { database, heroPageData }
 }
 
 export default async function LandingPage() {
-  const { testingPageData } = await getPosts()
+  const { heroPageData } = await getPosts()
+  const { heroPageId, heroTitle, heroCta } = heroPageData[0]
+  const blocks = await getBlocks(heroPageId)
+  const heroSubtitle = blocks[0].paragraph.rich_text[0].text.content
+  const heroImage = blocks[1].image.file.url
 
   return (
     <>
       <main>
-        <h1>Page Titles</h1>
-        <ul>
-          {testingPageData.map((post: any) => {
-            const pageTitle = post.properties.Title.title[0].plain_text
-            const slug = post.properties?.Slug?.rich_text[0].text.content
-            return (
-              <li key={post.id}>
-                <Link
-                  href={`/article/${slug}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <h2>{pageTitle}</h2>
-                </Link>
-              </li>
-            )
-          })}
-        </ul>
+        <HeroContainer
+          heroTitle={heroTitle}
+          heroSubtitle={heroSubtitle}
+          heroCta={heroCta}
+          heroImage={heroImage}
+        />
+        <HeroCardsContainer />
+        <NewsContainer />
+        <ResourcesContainer />
       </main>
     </>
   )
