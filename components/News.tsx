@@ -17,7 +17,7 @@ export default function NewsContainer() {
           <Card className="border-0">
             <Card.Img
               alt="The team achieves a milestone"
-              src="https://media.licdn.com/dms/image/D5622AQFBLH3JrI7vpA/feedshare-shrink_2048_1536/0/1709280485436?e=1712188800&v=beta&t=0W23TerMG7FntrF50ILpSoweX1JUmC5ZdLZR-l2ae28"
+              src="https://images.unsplash.com/photo-1591115765373-5207764f72e7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8cHJlc2VudGF0aW9ufGVufDB8fDB8fHww"
               variant="top"
             />
             <Card.Body>
