@@ -1,0 +1,8 @@
+.black {
+  background-color: #000;
+}
+
+.centerContainer {
+  max-width: 1400px;
+  margin: auto;
+}
