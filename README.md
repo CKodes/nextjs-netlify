@@ -91,7 +91,7 @@ Click on **_Deploy with GitHub_**.
 
 - Thereafter, you will be prompted to select either - **_All Repositories_** or **_Only Select Repositories_** before clicking **_Install Netlify_**.
 
-- _Note: Selecting \*\*\_Only Select Repositories_\*\* will require additional configuration if not initially granted permissions.\_
+- Note: Selecting **_Only Select Repositories_** will require additional configuration if not initially granted permissions.
 
 Select the repository that you would like to deploy to Netlify and ensure that you select the right branch to deploy in the **_Branch to Deploy_** field. The **_Site Settings_** will be auto-populated based on what Netlify reads in the `package.json`.
 
@@ -105,4 +105,4 @@ For this project, you will need to input your environment variables into Netlify
 
 ### Deploy Website
 
-Click on the \***\*Deploy\*\*** button and wait for the website to build. Once it is done building, the App Netlify dashboard will let you know that your website is live.
+Click on the **Deploy** button and wait for the website to build. Once it is done building, the App Netlify dashboard will let you know that your website is live.
