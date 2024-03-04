@@ -75,6 +75,8 @@ Open http://localhost:3000 with your browser to see the result.
 
 ## Set Up Netlify
 
+[Netlify Site Deploy](https://docs.netlify.com/site-deploys/overview/) official documents.
+
 ### Create a Netlify Account
 
 Create account at [Netlify](https://app.netlify.com/).
