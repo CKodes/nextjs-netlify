@@ -2,7 +2,7 @@
 
 This website is built with NextJS and Typescript with a SGDS React frontend. The data is fetched from a Notion Database using the [Notion API](https://developers.notion.com/).
 
-Jump to [Set Up Netlify](###-Set-Up-Netlify) if you have already set up your Notion API.
+Jump to [Set Up Netlify](#set-up-netlify) if you have already set up your Notion API.
 
 ## Set Up Notion API
 
@@ -101,7 +101,7 @@ A random string will be provided if this field is left blank.
 
 ### Add Environment Variables
 
-For this project, you will need to input your environment variables into Netlify via **_Add Environment Variables_**. Refer to section [Create .env file](###-Create-.env-file)
+For this project, you will need to input your environment variables into Netlify via **_Add Environment Variables_**. Refer to section [Create .env file](#create-env-file)
 
 ### Deploy Website
 
