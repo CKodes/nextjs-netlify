@@ -1,31 +1,41 @@
 'use client'
 import '@govtechsg/sgds/css/sgds.css'
-import HighlightsCard from './HighlightsCards'
+import HighlightsCard from './HighlightsCard'
 import styles from './landingPage.module.css'
 
-export default function HeroCardsContainer() {
+interface HighlightsContainerProps {
+  cardTitleArray: string[]
+  cardCtaArray: string[]
+  cardLinkArray: string[]
+}
+
+export default function HighlightsContainer({
+  cardTitleArray,
+  cardCtaArray,
+  cardLinkArray,
+}: HighlightsContainerProps) {
   return (
     <>
       {/* Hero Cards Section */}
       <section className={styles.offset}>
         <div className={styles.heroCardsContainer}>
           <div className={styles.heroCards}>
-            <HighlightsCard
-              cardTitle="Title 1"
-              cardDescription="oh captain my captain"
-            />
-            <HighlightsCard
-              cardTitle="Title 2"
-              cardDescription="oh captain my captain"
-            />
-            <HighlightsCard
-              cardTitle="Title 3"
-              cardDescription="oh captain my captain"
-            />
-            <HighlightsCard
-              cardTitle="Title 4"
-              cardDescription="oh captain my captain"
-            />
+            {cardTitleArray.slice(0, 4).map((title, index) => (
+              <HighlightsCard
+                key={index}
+                cardTitle={title}
+                cardCta={
+                  cardCtaArray && index < cardCtaArray.length
+                    ? cardCtaArray[index]
+                    : ''
+                }
+                cardLink={
+                  cardLinkArray && index < cardLinkArray.length
+                    ? cardLinkArray[index]
+                    : ''
+                }
+              />
+            ))}
           </div>
         </div>
       </section>
