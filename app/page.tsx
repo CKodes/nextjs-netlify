@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { getDatabase, getBlocks } from '../lib/notion'
 import HeroContainer from '../components/Hero'
 import HighlightsContainer from '../components/HighlightsContainer'
-import NewsContainer from '../components/News'
+import NewsContainer from '../components/NewsContainer'
 import ResourcesContainer from '../components/Resources'
 
 async function getPosts() {
