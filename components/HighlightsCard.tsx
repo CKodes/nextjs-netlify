@@ -2,7 +2,7 @@
 import '@govtechsg/sgds/css/sgds.css'
 import Image from 'next/image'
 import Tool from '../public/tool.svg'
-import styles from './landingPage.module.css'
+import styles from '../styles/landingPage.module.css'
 
 interface HighlightsCardProps {
   cardTitle: string

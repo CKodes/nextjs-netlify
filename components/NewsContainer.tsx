@@ -2,7 +2,7 @@
 import '@govtechsg/sgds/css/sgds.css'
 import { Button } from '@govtechsg/sgds-react/Button'
 import { Card } from '@govtechsg/sgds-react/Card'
-import styles from './landingPage.module.css'
+import styles from '../styles/landingPage.module.css'
 import SideNewsCard from './SideNewsCard'
 
 interface NewsContainerProps {
