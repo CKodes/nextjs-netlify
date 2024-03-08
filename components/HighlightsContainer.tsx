@@ -16,7 +16,7 @@ export default function HighlightsContainer({
 }: HighlightsContainerProps) {
   return (
     <>
-      {/* Hero Cards Section */}
+      {/* Highlights Section */}
       <section className={styles.offset}>
         <div className={styles.heroCardsContainer}>
           <div className={styles.heroCards}>
