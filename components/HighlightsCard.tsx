@@ -27,7 +27,9 @@ export default function HighlightsCard({
           <p>{cardCta}</p>
         </div>
         <div className="hero-card-footer">
-          <a href={cardLink}>Read More</a>
+          <a href={cardLink} target="_blank">
+            Read More
+          </a>
         </div>
       </div>
     </>
