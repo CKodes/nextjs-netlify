@@ -7,11 +7,13 @@ import styles from './landingPage.module.css'
 interface CardsProps {
   cardTitle: string
   cardDescription: string
+  cardUrl: string
 }
 
 export default function HighlightsCard({
   cardTitle,
   cardDescription,
+  cardUrl,
 }: CardsProps) {
   return (
     <>
@@ -25,7 +27,7 @@ export default function HighlightsCard({
           <p>{cardDescription}</p>
         </div>
         <div className="hero-card-footer">
-          <a href="www.google.com">Read More</a>
+          <a href={cardUrl}>Read More</a>
         </div>
       </div>
     </>
