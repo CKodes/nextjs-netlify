@@ -1,9 +1,9 @@
 import Link from 'next/link'
 import { getDatabase, getBlocks } from '../lib/notion'
-import HeroContainer from '../components/Hero'
-import HighlightsContainer from '../components/HighlightsContainer'
-import NewsContainer from '../components/NewsContainer'
-import ResourcesContainer from '../components/Resources'
+import HeroContainer from '../components/LandingPage/Hero'
+import HighlightsContainer from '../components/LandingPage/HighlightsContainer'
+import NewsContainer from '../components/LandingPage/NewsContainer'
+import ResourcesContainer from '../components/LandingPage/Resources'
 
 async function getPosts() {
   const database = await getDatabase()
