@@ -59,6 +59,49 @@ export default async function LandingPage() {
     })
   })
 
+  // Main News
+  const mainNewsBlock = blocks.find((block: any) => {
+    if (block.type === 'toggle') {
+      return block.toggle.rich_text.some((richText: any) => {
+        return richText.text.content === 'Main News'
+      })
+    }
+    return false
+  })
+
+  const mainNewsTitle =
+    mainNewsBlock.children[1].bulleted_list.children[0].bulleted_list_item
+      .rich_text[0].text.content
+  const mainNewsImageUrl = mainNewsBlock.children[0].image.file.url
+  const mainNewsSnippet =
+    mainNewsBlock.children[1].bulleted_list.children[0].children[0]
+      .bulleted_list.children[0].bulleted_list_item.rich_text[0].text.content
+
+  // Side News
+  const sideNewsTitleArray: string[] = []
+  const sideNewsSnippetArray: string[] = []
+
+  const sideNewsBlock = blocks.find((block: any) => {
+    if (block.type === 'toggle') {
+      return block.toggle.rich_text.some((richText: any) => {
+        return richText.text.content === 'Side News'
+      })
+    }
+    return false
+  })
+
+  sideNewsBlock.children.forEach((child: any) => {
+    child.bulleted_list.children.forEach((listItem: any) => {
+      const titleItem = listItem.bulleted_list_item.rich_text[0].text.content
+      sideNewsTitleArray.push(titleItem)
+
+      const snippetItem =
+        listItem.children[0].bulleted_list.children[0].bulleted_list_item
+          .rich_text[0].text.content
+      sideNewsSnippetArray.push(snippetItem)
+    })
+  })
+
   return (
     <>
       <main>
@@ -73,7 +116,13 @@ export default async function LandingPage() {
           cardCtaArray={highlightsCtaArray}
           cardLinkArray={highlightsLinkArray}
         />
-        <NewsContainer />
+        <NewsContainer
+          mainNewsTitle={mainNewsTitle}
+          mainNewsLink={mainNewsImageUrl}
+          mainNewsSnippet={mainNewsSnippet}
+          sideNewsCardTitleArray={sideNewsTitleArray}
+          sideNewsCardSnippetArray={sideNewsSnippetArray}
+        />
         <ResourcesContainer />
       </main>
     </>
