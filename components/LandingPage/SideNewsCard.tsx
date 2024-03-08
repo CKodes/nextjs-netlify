@@ -1,7 +1,6 @@
 'use client'
 import '@govtechsg/sgds/css/sgds.css'
-import styles from '../styles/landingPage.module.css'
-
+import styles from '../../styles/landingPage.module.css'
 interface SideNewsCardProps {
   sideNewsCardTitle: string
   sideNewsCardSnippet: string

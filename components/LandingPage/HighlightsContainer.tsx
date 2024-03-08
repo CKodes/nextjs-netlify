@@ -1,7 +1,7 @@
 'use client'
 import '@govtechsg/sgds/css/sgds.css'
 import HighlightsCard from './HighlightsCard'
-import styles from '../styles/landingPage.module.css'
+import styles from '../../styles/landingPage.module.css'
 
 interface HighlightsContainerProps {
   cardTitleArray: string[]
