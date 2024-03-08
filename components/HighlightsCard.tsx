@@ -4,28 +4,30 @@ import Image from 'next/image'
 import Tool from '../public/tool.svg'
 import styles from './landingPage.module.css'
 
-interface CardsProps {
+interface HighlightsCardProps {
   cardTitle: string
-  cardDescription: string
+  cardCta: string
+  cardLink: string
 }
 
 export default function HighlightsCard({
   cardTitle,
-  cardDescription,
-}: CardsProps) {
+  cardCta,
+  cardLink,
+}: HighlightsCardProps) {
   return (
     <>
-      {/* Highlights Cards Section */}
+      {/* Highlights Card Component */}
       <div className={styles.heroCardItem}>
         <div className={styles.heroCardImage}>
           <Image src={Tool} alt="" width={150} height={150} priority />
         </div>
         <div className={styles.heroCardContent}>
           <h2>{cardTitle}</h2>
-          <p>{cardDescription}</p>
+          <p>{cardCta}</p>
         </div>
         <div className="hero-card-footer">
-          <a href="www.google.com">Read More</a>
+          <a href={cardLink}>Read More</a>
         </div>
       </div>
     </>
