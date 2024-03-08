@@ -102,6 +102,37 @@ export default async function LandingPage() {
     })
   })
 
+  // Resources
+  const resourcesCardTitleArray: string[] = []
+  const resourcesCardDescriptionArray: string[] = []
+  const resourcesCardLinkArray: string[] = []
+
+  const resourcesBlock = blocks.find((block: any) => {
+    if (block.type === 'toggle') {
+      return block.toggle.rich_text.some((richText: any) => {
+        return richText.text.content === 'Resources'
+      })
+    }
+    return false
+  })
+
+  resourcesBlock.children.forEach((child: any) => {
+    child.bulleted_list.children.forEach((listItem: any) => {
+      const titleItem = listItem.bulleted_list_item.rich_text[0].text.content
+      resourcesCardTitleArray.push(titleItem)
+
+      const descItem =
+        listItem.children[0].bulleted_list.children[0].bulleted_list_item
+          .rich_text[0].text.content
+      resourcesCardDescriptionArray.push(descItem)
+
+      const urlItem = listItem.bulleted_list_item.rich_text[0].text.link.url
+      resourcesCardLinkArray.push(urlItem)
+    })
+  })
+
+  const allResourcesBtnUrl = 'https://www.google.com'
+
   return (
     <>
       <main>
@@ -123,7 +154,12 @@ export default async function LandingPage() {
           sideNewsCardTitleArray={sideNewsTitleArray}
           sideNewsCardSnippetArray={sideNewsSnippetArray}
         />
-        <ResourcesContainer />
+        <ResourcesContainer
+          resourcesCardTitleArray={resourcesCardTitleArray}
+          resourcesCardDescriptionArray={resourcesCardDescriptionArray}
+          resourcesCardLinkArray={resourcesCardLinkArray}
+          ctaLink={allResourcesBtnUrl}
+        />
       </main>
     </>
   )
