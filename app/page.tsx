@@ -131,7 +131,8 @@ export default async function LandingPage() {
     })
   })
 
-  const allResourcesBtnUrl = 'https://www.google.com'
+  // const allResourcesBtnUrl = 'https://www.google.com'
+  const allResourcesBtnUrl = '/allResources/all-resources'
 
   return (
     <>
