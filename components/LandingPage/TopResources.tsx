@@ -5,7 +5,7 @@ import { Button } from '@govtechsg/sgds-react/Button'
 import styles from '../../styles/landingPage.module.css'
 import TopResourcesCard from './TopResourcesCard'
 
-interface ResourceCardContainerProps {
+interface TopResourcesContainerProps {
   resourcesCardTitleArray: string[]
   resourcesCardDescriptionArray: string[]
   resourcesCardLinkArray: string[]
@@ -17,7 +17,7 @@ export default function TopResourcesContainer({
   resourcesCardDescriptionArray,
   resourcesCardLinkArray,
   ctaLink,
-}: ResourceCardContainerProps) {
+}: TopResourcesContainerProps) {
   return (
     <>
       {/* Top Resources Container*/}
