@@ -3,7 +3,7 @@ import { getDatabase, getBlocks } from '../lib/notion'
 import HeroContainer from '../components/LandingPage/Hero'
 import HighlightsContainer from '../components/LandingPage/HighlightsContainer'
 import NewsContainer from '../components/LandingPage/NewsContainer'
-import ResourcesContainer from '../components/LandingPage/Resources'
+import TopResourcesContainer from '../components/LandingPage/TopResources'
 
 async function getPosts() {
   const database = await getDatabase()
@@ -154,7 +154,7 @@ export default async function LandingPage() {
           sideNewsCardTitleArray={sideNewsTitleArray}
           sideNewsCardSnippetArray={sideNewsSnippetArray}
         />
-        <ResourcesContainer
+        <TopResourcesContainer
           resourcesCardTitleArray={resourcesCardTitleArray}
           resourcesCardDescriptionArray={resourcesCardDescriptionArray}
           resourcesCardLinkArray={resourcesCardLinkArray}
