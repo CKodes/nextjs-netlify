@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { Fragment } from 'react'
 import Text from '../components/annotatedText'
 import styles from '../styles/post.module.css'
+import '@govtechsg/sgds/css/sgds.css'
 
 export function renderBlock(block: any) {
   const { type, id } = block
@@ -16,19 +17,19 @@ export function renderBlock(block: any) {
       )
     case 'heading_1':
       return (
-        <h1>
+        <h1 className="mt-5">
           <Text title={value.rich_text} />
         </h1>
       )
     case 'heading_2':
       return (
-        <h2>
+        <h2 className="mt-5">
           <Text title={value.rich_text} />
         </h2>
       )
     case 'heading_3':
       return (
-        <h3>
+        <h3 className="mt-5">
           <Text title={value.rich_text} />
         </h3>
       )
@@ -157,6 +158,21 @@ export function renderBlock(block: any) {
     }
     case 'column': {
       return <div>{block.children.map((child: any) => renderBlock(child))}</div>
+    }
+    case 'video': {
+      const src =
+        value.type === 'external' ? value.external.url : value.file.url
+      return (
+        <div>
+          <iframe
+            width="560"
+            height="315"
+            src={src}
+            title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          ></iframe>
+        </div>
+      )
     }
     default:
       return `❌ Unsupported block (${
