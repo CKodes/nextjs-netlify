@@ -1,0 +1,12 @@
+.pageContentContainer {
+  max-width: 1400px;
+  margin: auto;
+  padding: 4rem;
+}
+
+.pageCardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
