@@ -32,17 +32,17 @@ export default async function A11yWeekPage() {
           {/* // TODO: Shift these two p into Notion */}
           <div className="my-5">
             <p>
-              A11y Week is an annual learning festival hosted by GovTech’s
+              {`A11y Week is an annual learning festival hosted by GovTech’s
               Accessibility Enabling Team that welcomes public officers involved
               in building digital government services, to come together to
               discuss and learn about digital accessibility and inclusive
-              design.
+              design.`}
             </p>
             <p>
-              A11y Week also celebrates Global Accessibility Awareness Day — a
+              {`A11y Week also celebrates Global Accessibility Awareness Day — a
               global effort to get everyone talking, thinking and learning about
               digital access and inclusion, and we're pumped to celebrate it
-              here in sunny Singapore.
+              here in sunny Singapore.`}
             </p>
           </div>
           <div className={styles.pageCardGrid}>
