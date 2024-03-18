@@ -19,7 +19,7 @@ export default function AllResourcesContainer({
       {/* All Resources */}
       <section className={styles.resourcesCenterContainer}>
         <div className="d-flex justify-content-between">
-          <h2 className="my-auto mx-0">All Resources</h2>
+          <h1 className="my-auto mx-0">All Resources</h1>
         </div>
         <div className={styles.resourcesContent}>
           {resourcesCardTitleArray.map((title, index) => (

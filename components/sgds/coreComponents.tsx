@@ -1,4 +1,5 @@
 'use client'
+import Link from 'next/link'
 import { useState } from 'react'
 import '@govtechsg/sgds/css/sgds.css'
 import '@govtechsg/sgds-masthead/dist/sgds-masthead/sgds-masthead.css'
@@ -43,13 +44,16 @@ export function NavbarSgds() {
           <Navbar.Collapse id="landingNav">
             <Nav className="me-auto" navbarScroll activeKey={active}>
               <Nav.Item>
-                <Nav.Link
-                  href="https://www.google.com"
-                  eventKey="Link One"
-                  onClick={() => clickNavbarItem('linkOne')}
+                {/* // FIX! Buggy link routing when in a11yWeek page */}
+                {/* // FIX! /a11yWeek path repeats twice */}
+                <Link
+                  className="nav-link"
+                  href={`a11yWeek`}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  Link One
-                </Nav.Link>
+                  A11y Week
+                </Link>
               </Nav.Item>
               <Nav.Item>
                 <Nav.Link
