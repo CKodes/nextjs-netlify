@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { getDatabase } from '../../lib/notion'
 import styles from '../page.module.css'
 import CardWithImg from '../../components/sgds/CardWithImg'
-import { checkTestCodesFolder, saveResultsJson } from '../../lib/saveJson'
+// import { checkTestCodesFolder, saveResultsJson } from '../../lib/saveJson'
 
 async function getPosts() {
   const database = await getDatabase()
@@ -18,10 +18,10 @@ async function getPosts() {
 }
 
 export default async function A11yWeekPage() {
-  checkTestCodesFolder
+  // checkTestCodesFolder
   const { eventPagesData } = await getPosts()
 
-  saveResultsJson('eventPagesData.json', eventPagesData)
+  // saveResultsJson('eventPagesData.json', eventPagesData)
   return (
     <>
       <main>
