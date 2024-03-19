@@ -57,7 +57,8 @@ export default async function A11yWeekPage() {
                   key={post.id}
                   cardImgSrc={cardImgSrcUrl}
                   cardTitle={pageTitle}
-                  cardLink={`a11yWeek/${slug}`}
+                  cardCtaLink={`a11yWeek/${slug}`}
+                  cardCta="Learn More"
                 />
               )
             })}

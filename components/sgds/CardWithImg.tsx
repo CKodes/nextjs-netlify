@@ -5,14 +5,16 @@ import Link from 'next/link'
 
 interface Props {
   cardTitle: string
-  cardLink: string
+  cardCtaLink: string
   cardImgSrc: string
+  cardCta: string
 }
 
 export default function CardWithImg({
   cardTitle,
-  cardLink,
+  cardCtaLink,
   cardImgSrc,
+  cardCta,
 }: Props) {
   return (
     <>
@@ -25,8 +27,8 @@ export default function CardWithImg({
         <Card.Body>
           <span>Tags</span>
           <h3>{cardTitle}</h3>
-          <Link href={cardLink} target="_blank" rel="noopener noreferrer">
-            Learn More
+          <Link href={cardCtaLink} target="_blank" rel="noopener noreferrer">
+            {cardCta}
           </Link>
         </Card.Body>
       </Card>
