@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { getDatabase } from '../../lib/notion'
 import styles from '../page.module.css'
 import CardWithoutImg from '../../components/sgds/CardWithoutImg'
-import { checkTestCodesFolder, saveResultsJson } from '../../lib/saveJson'
+// import { checkTestCodesFolder, saveResultsJson } from '../../lib/saveJson'
 
 async function getPosts() {
   const database = await getDatabase()
@@ -17,10 +17,10 @@ async function getPosts() {
 }
 
 export default async function AllArticlesPage() {
-  checkTestCodesFolder
+  // checkTestCodesFolder
   const { articlePagesData } = await getPosts()
 
-  saveResultsJson('articlePagesData.json', articlePagesData)
+  // saveResultsJson('articlePagesData.json', articlePagesData)
   return (
     <>
       <main>
