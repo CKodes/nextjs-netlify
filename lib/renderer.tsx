@@ -17,19 +17,19 @@ export function renderBlock(block: any) {
       )
     case 'heading_1':
       return (
-        <h1 className="mt-5">
+        <h1 className="my-8">
           <Text title={value.rich_text} />
         </h1>
       )
     case 'heading_2':
       return (
-        <h2 className="mt-5">
+        <h2 className="my-8">
           <Text title={value.rich_text} />
         </h2>
       )
     case 'heading_3':
       return (
-        <h3 className="mt-5">
+        <h3 className="my-8">
           <Text title={value.rich_text} />
         </h3>
       )
@@ -80,7 +80,7 @@ export function renderBlock(block: any) {
       const caption = value.caption ? value.caption[0]?.plain_text : ''
       return (
         <figure>
-          <img src={src} alt={caption} />
+          <img src={src} alt={caption} className="w-100" />
           {caption && <figcaption>{caption}</figcaption>}
         </figure>
       )

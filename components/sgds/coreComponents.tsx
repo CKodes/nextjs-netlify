@@ -48,7 +48,7 @@ export function NavbarSgds() {
                 {/* // FIX! /a11yWeek path repeats twice */}
                 <Link
                   className="nav-link"
-                  href={`a11yWeek`}
+                  href={`/a11yWeek`}
                   target="_blank"
                   rel="noopener noreferrer"
                 >

@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import { Fragment } from 'react'
 import { getPageFromSlug, getBlocks } from '../../../lib/notion'
 import { renderBlock } from '../../../lib/renderer'
+import styles from '../../page.module.css'
 
 type Props = {
   params: { slug: string }
@@ -34,8 +35,10 @@ export default async function Page({ params }: { params: any }) {
 
   return (
     <main>
-      <h1>{pageTitle}</h1>
-      <section>
+      <section className={styles.pageContentContainer}>
+        <div>
+          <h1 className="mb-8 mx-0">{pageTitle}</h1>
+        </div>
         {blocks.map((block) => (
           <Fragment key={block.id}>{renderBlock(block)}</Fragment>
         ))}

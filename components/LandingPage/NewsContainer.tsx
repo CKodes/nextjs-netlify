@@ -9,8 +9,10 @@ interface NewsContainerProps {
   mainNewsTitle: string
   mainNewsLink: string
   mainNewsSnippet: string
+  mainNewsUrl: string
   sideNewsCardTitleArray: string[]
   sideNewsCardSnippetArray: string[]
+  allNewsUrl: string
 }
 
 export default function NewsContainer({
@@ -19,6 +21,8 @@ export default function NewsContainer({
   mainNewsSnippet,
   sideNewsCardTitleArray,
   sideNewsCardSnippetArray,
+  allNewsUrl,
+  mainNewsUrl,
 }: NewsContainerProps) {
   return (
     <>
@@ -26,7 +30,13 @@ export default function NewsContainer({
       <section className={styles.newsCenterContainer}>
         <div className="d-flex justify-content-between">
           <h2 className="my-auto mx-0">News</h2>
-          <Button className="d-none d-md-block">All Articles</Button>
+          <Button
+            href={allNewsUrl}
+            target="_blank"
+            className="d-none d-md-block"
+          >
+            All Articles
+          </Button>
         </div>
         <div className={styles.newsContent}>
           <Card className="border-0">
@@ -39,7 +49,9 @@ export default function NewsContainer({
               <span>Tags</span>
               <h3>{mainNewsTitle}</h3>
               <Card.Text>{mainNewsSnippet}</Card.Text>
-              <a href="www.google.com">Read More</a>
+              <a href={mainNewsUrl} target="_blank">
+                Read More
+              </a>
             </Card.Body>
           </Card>
           <div className={styles.newsArchiveContainer}>
@@ -57,7 +69,13 @@ export default function NewsContainer({
               />
             ))}
           </div>
-          <Button className="d-block d-md-none w-100">All Articles</Button>
+          <Button
+            href={allNewsUrl}
+            target="_blank"
+            className="d-block d-md-none w-100"
+          >
+            All Articles
+          </Button>
         </div>
       </section>
     </>

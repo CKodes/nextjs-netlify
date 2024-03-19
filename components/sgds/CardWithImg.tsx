@@ -26,7 +26,7 @@ export default function CardWithImg({
           <span>Tags</span>
           <h3>{cardTitle}</h3>
           <Link href={cardLink} target="_blank" rel="noopener noreferrer">
-            Learn More
+            Read More
           </Link>
         </Card.Body>
       </Card>
