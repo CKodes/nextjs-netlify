@@ -80,7 +80,7 @@ export function renderBlock(block: any) {
       const caption = value.caption ? value.caption[0]?.plain_text : ''
       return (
         <figure>
-          <img src={src} alt={caption} />
+          <img src={src} alt={caption} className="w-100" />
           {caption && <figcaption>{caption}</figcaption>}
         </figure>
       )
