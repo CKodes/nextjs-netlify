@@ -24,6 +24,7 @@ export default function TopResourcesContainer({
       <section className={styles.resourcesCenterContainer}>
         <div className="d-flex justify-content-between">
           <h2 className="my-auto mx-0">Top Resources</h2>
+          {/* // TODO: Change to a styled link. */}
           <Button className="d-none d-md-block" href={ctaLink} target="_blank">
             All Resources
           </Button>
@@ -46,6 +47,7 @@ export default function TopResourcesContainer({
               }
             />
           ))}
+          {/* // TODO: Change to a styled link. */}
           <Button
             className="d-block d-md-none w-100"
             href={ctaLink}
