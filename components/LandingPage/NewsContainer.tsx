@@ -11,6 +11,7 @@ interface NewsContainerProps {
   mainNewsSnippet: string
   sideNewsCardTitleArray: string[]
   sideNewsCardSnippetArray: string[]
+  allArticlesBtnUrl: string
 }
 
 export default function NewsContainer({
@@ -19,6 +20,7 @@ export default function NewsContainer({
   mainNewsSnippet,
   sideNewsCardTitleArray,
   sideNewsCardSnippetArray,
+  allArticlesBtnUrl,
 }: NewsContainerProps) {
   return (
     <>
@@ -26,7 +28,14 @@ export default function NewsContainer({
       <section className={styles.newsCenterContainer}>
         <div className="d-flex justify-content-between">
           <h2 className="my-auto mx-0">News</h2>
-          <Button className="d-none d-md-block">All Articles</Button>
+          {/* // TODO: Change to a styled link. */}
+          <Button
+            href={allArticlesBtnUrl}
+            target="_blank"
+            className="d-none d-md-block"
+          >
+            All Articles
+          </Button>
         </div>
         <div className={styles.newsContent}>
           <Card className="border-0">
@@ -57,7 +66,14 @@ export default function NewsContainer({
               />
             ))}
           </div>
-          <Button className="d-block d-md-none w-100">All Articles</Button>
+          {/* // TODO: Change to a styled link. */}
+          <Button
+            href={allArticlesBtnUrl}
+            target="_blank"
+            className="d-block d-md-none w-100"
+          >
+            All Articles
+          </Button>
         </div>
       </section>
     </>
