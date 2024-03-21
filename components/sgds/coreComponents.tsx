@@ -32,7 +32,7 @@ export function NavbarSgds() {
     <>
       <div className={styles.centerContainer}>
         <Navbar expand="sm">
-          <Navbar.Brand href="">
+          <Navbar.Brand href="/">
             <Image
               priority
               src={littleDino}
