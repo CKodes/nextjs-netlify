@@ -32,7 +32,7 @@ export function NavbarSgds() {
     <>
       <div className={styles.centerContainer}>
         <Navbar expand="sm">
-          <Navbar.Brand href="">
+          <Navbar.Brand href="/">
             <Image
               priority
               src={littleDino}
@@ -44,12 +44,9 @@ export function NavbarSgds() {
           <Navbar.Collapse id="landingNav">
             <Nav className="me-auto" navbarScroll activeKey={active}>
               <Nav.Item>
-                {/* // FIX! Buggy link routing when in a11yWeek page */}
-                {/* // FIX! /a11yWeek path repeats twice */}
                 <Link
                   className="nav-link"
-                  href={`a11yWeek`}
-                  target="_blank"
+                  href={`/a11yWeek`}
                   rel="noopener noreferrer"
                 >
                   A11y Week
