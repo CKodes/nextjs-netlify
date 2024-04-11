@@ -27,14 +27,14 @@ jobs:
 
       - name: Create .env file
         env:
-          NOTION_TOKEN: "${{ secrets.NOTION_TOKEN }}"
-          NOTION_DATABASE_ID: "${{ secrets.NOTION_DATABASE_ID }}"
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
         run: |
           touch .env
           echo "NOTION_TOKEN=$NOTION_TOKEN" > .env
           echo "NOTION_DATABASE_ID=$NOTION_DATABASE_ID" >> .env
           awk '{print length}' .env
-  
+
       - name: Build with Next.js 🏗️
         run: npx next build
 
