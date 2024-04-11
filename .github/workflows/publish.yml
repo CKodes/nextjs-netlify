@@ -30,7 +30,7 @@ jobs:
           touch .env
           echo "NOTION_TOKEN=${{ secrets.NOTION_TOKEN }}" > .env
           echo "NOTION_DATABASE_ID=${{ secrets.NOTION_DATABASE_ID }}" >> .env
-          cat .env
+          awk '{print length}' .env
 
       - name: Build with Next.js 🏗️
         run: npx next build
