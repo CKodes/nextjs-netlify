@@ -1,22 +1,17 @@
-# File: .github/workflows/publish.yml
 name: publish-to-github-pages
 on:
   push:
     branches:
       - improv/github-pages
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: 'pages'
-  cancel-in-progress: false
-
 jobs:
   build:
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
 
     steps:
       - name: Checkout 🛎️
@@ -31,10 +26,10 @@ jobs:
           static_site_generator: next
 
       - name: Create .env file
-      run: |
-        touch .env
-        echo "NOTION_TOKEN=${{ secrets.NOTION_TOKEN }}" >> .env
-        echo "NOTION_DATABASE_ID=${{ secrets.NOTION_DATABASE_ID }}" >> .env
+        run: |
+          touch .env
+          echo "NOTION_TOKEN=${{ secrets.NOTION_TOKEN }}" >> .env
+          echo "NOTION_DATABASE_ID=${{ secrets.NOTION_DATABASE_ID }}" >> .env
 
       - name: Build with Next.js 🏗️
         run: npx next build
