@@ -36,6 +36,9 @@ jobs:
           NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
         run: npx next build
 
+      - name: Create .nojekyll
+        run: touch ./out/.nojekyll
+
       - name: Upload artifact 📡
         uses: actions/upload-pages-artifact@v3
         with:
