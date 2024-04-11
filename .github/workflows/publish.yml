@@ -41,12 +41,6 @@ jobs:
         with:
           path: ./out
 
-      - name: Upload artifact for inspection
-        uses: actions/upload-artifact@v3
-        with:
-          name: static-site
-          path: ./out
-
   deploy:
     environment:
       name: github-pages
