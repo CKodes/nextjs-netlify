@@ -133,6 +133,7 @@ export default async function LandingPage() {
 
   // const allResourcesBtnUrl = 'https://www.google.com'
   const allResourcesBtnUrl = '/allResources/all-resources'
+  const allArticlesBtnUrl = '/articles'
 
   return (
     <>
@@ -154,6 +155,7 @@ export default async function LandingPage() {
           mainNewsSnippet={mainNewsSnippet}
           sideNewsCardTitleArray={sideNewsTitleArray}
           sideNewsCardSnippetArray={sideNewsSnippetArray}
+          allArticlesBtnUrl={allArticlesBtnUrl}
         />
         <TopResourcesContainer
           resourcesCardTitleArray={resourcesCardTitleArray}
