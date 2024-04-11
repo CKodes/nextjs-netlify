@@ -29,12 +29,12 @@ jobs:
         uses: actions/configure-pages@v4
         with:
           static_site_generator: next
-
-      - name: Export with Next.js 🏗️
+          
+      - name: Build with Next.js 🏗️
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
           NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
-        run: npx next export
+        run: npx next build
 
       - name: Upload artifact 📡
         uses: actions/upload-pages-artifact@v3
