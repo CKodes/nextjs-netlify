@@ -9,12 +9,6 @@ runs:
       with:
         node-version: 20
 
-    - name: Create .env file
-      run: |
-        touch .env
-        echo "NOTION_TOKEN=${{ secrets.NOTION_TOKEN }}" >> .env
-        echo "NOTION_DATABASE_ID=${{ secrets.NOTION_DATABASE_ID }}" >> .env
-
     - name: Cache dependencies ⚡
       id: cache_dependencies
       uses: actions/cache@v3
@@ -26,3 +20,9 @@ runs:
       shell: bash
       if: steps.cache_dependencies.outputs.cache-hit != 'true'
       run: npm ci
+
+    - name: Create .env file
+      run: |
+        touch .env
+        echo "NOTION_TOKEN=${{ secrets.NOTION_TOKEN }}" >> .env
+        echo "NOTION_DATABASE_ID=${{ secrets.NOTION_DATABASE_ID }}" >> .env
