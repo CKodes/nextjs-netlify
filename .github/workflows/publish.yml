@@ -3,6 +3,10 @@ on:
   push:
     branches:
       - improv/github-pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
   build:
