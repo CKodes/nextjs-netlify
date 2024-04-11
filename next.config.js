@@ -1,9 +1,4 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  output: 'export',
-  assetPrefix: ".",
-  basePath: "nextjs-netlify",
-}
 
 module.exports = {
   env: {
@@ -11,7 +6,9 @@ module.exports = {
     NOTION_DATABASE_ID: process.env.NOTION_DATABASE_ID || require('dotenv').config().parsed?.NOTION_DATABASE_ID,
   },
   distDir: 'out',
-  nextConfig,
+  output: 'export',
+  assetPrefix: ".",
+  basePath: "nextjs-netlify",
   images: {
     remotePatterns: [
       {
