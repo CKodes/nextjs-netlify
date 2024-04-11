@@ -1,7 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  basePath: '/nextjs-netlify',
-  output: 'export', // <=== enables static exports
+  output: 'export',
 }
 
 module.exports = {
