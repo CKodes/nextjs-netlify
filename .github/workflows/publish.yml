@@ -25,17 +25,10 @@ jobs:
         with:
           static_site_generator: next
 
-      - name: Create .env file
+      - name: Build with Next.js 🏗️
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
           NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
-        run: |
-          touch .env
-          echo "NOTION_TOKEN=$NOTION_TOKEN" > .env
-          echo "NOTION_DATABASE_ID=$NOTION_DATABASE_ID" >> .env
-          awk '{print length}' .env
-
-      - name: Build with Next.js 🏗️
         run: npx next build
 
       - name: Upload artifact 📡
