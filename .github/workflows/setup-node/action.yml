@@ -9,6 +9,11 @@ runs:
       with:
         node-version: 20
 
+    - name: Create .env file
+      run: |
+        echo "SECRET_ONE=${{ secrets.NOTION_TOKEN }}" > .env
+        echo "SECRET_TWO=${{ secrets.NOTION_DATABASE_ID }}" >> .env
+
     - name: Cache dependencies ⚡
       id: cache_dependencies
       uses: actions/cache@v3
