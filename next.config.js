@@ -11,6 +11,6 @@ module.exports = {
   },
   distDir: 'out',
   output: 'export',
-  assetPrefix: '/',
+  assetPrefix: '/nextjs-netlify',
   basePath: '/nextjs-netlify',
 }
