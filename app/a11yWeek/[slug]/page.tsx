@@ -9,7 +9,7 @@ type Props = {
   params: { slug: string }
 }
 
-async function getPageAndTitle(
+async function generateStaticParams(
   slug: string
 ): Promise<{ page: any; pageTitle: string }> {
   const page: any = await getPageFromSlug(slug)
@@ -19,7 +19,7 @@ async function getPageAndTitle(
 
 // Dynamically update title for each page
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { pageTitle } = await getPageAndTitle(params.slug)
+  const { pageTitle } = await generateStaticParams(params.slug)
 
   return {
     title: pageTitle,
@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function Page({ params }: { params: any }) {
   // checkTestCodesFolder
-  const { page, pageTitle } = await getPageAndTitle(params.slug)
+  const { page, pageTitle } = await generateStaticParams(params.slug)
   const blocks = await getBlocks(page?.id)
 
   if (!page || !blocks) {
