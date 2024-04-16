@@ -17,9 +17,17 @@ async function getPosts() {
   return { database, eventPagesData }
 }
 
-export default async function A11yWeekPage() {
+export async function generateStaticParams() {
+  const { database } = await getPosts()
+  return database.map((posts: any) => ({
+    slug: posts.properties.Slug.rich_text[0].text.content,
+  }))
+}
+
+export default async function A11yWeekPage({ params }: { params: any }) {
   // checkTestCodesFolder
   const { eventPagesData } = await getPosts()
+  const { slug } = params
 
   // saveResultsJson('eventPagesData.json', eventPagesData)
   return (

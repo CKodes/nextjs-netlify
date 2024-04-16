@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import { Fragment } from 'react'
-import { getPageFromSlug, getBlocks } from '../../../lib/notion'
+import { getPageFromSlug, getBlocks, getDatabase } from '../../../lib/notion'
 import { renderBlock } from '../../../lib/renderer'
 import styles from '../../page.module.css'
 import SideNavigation from '../../../components/sgds/SideNav'
@@ -10,7 +10,19 @@ type Props = {
   params: { slug: string }
 }
 
-async function generateStaticParams(
+export async function generateStaticParams() {
+  const database = await getDatabase()
+  const articleDatabase = database.filter((dBase: any) => {
+    return dBase.properties.Tags.rich_text.some(
+      (tag: any) => tag.plain_text === 'article'
+    )
+  })
+  return articleDatabase.map((posts: any) => ({
+    slug: posts.properties.Slug.rich_text[0].text.content,
+  }))
+}
+
+async function getPageAndTitle(
   slug: string
 ): Promise<{ page: any; pageTitle: string }> {
   const page: any = await getPageFromSlug(slug)
@@ -20,7 +32,7 @@ async function generateStaticParams(
 
 // Dynamically update title for each page
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { pageTitle } = await generateStaticParams(params.slug)
+  const { pageTitle } = await getPageAndTitle(params.slug)
 
   return {
     title: pageTitle,
@@ -28,7 +40,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Page({ params }: { params: any }) {
-  const { page, pageTitle } = await generateStaticParams(params.slug)
+  const { page, pageTitle } = await getPageAndTitle(params.slug)
   const blocks = await getBlocks(page?.id)
 
   if (!page || !blocks) {
