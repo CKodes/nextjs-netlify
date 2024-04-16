@@ -16,9 +16,17 @@ async function getPosts() {
   return { database, articlePagesData }
 }
 
-export default async function AllArticlesPage() {
+export async function generateStaticParams() {
+  const { database } = await getPosts()
+  return database.map((posts: any) => ({
+    slug: posts.properties.Slug.rich_text[0].text.content,
+  }))
+}
+
+export default async function AllArticlesPage({ params }: { params: any }) {
   // checkTestCodesFolder
   const { articlePagesData } = await getPosts()
+  const { slug } = params
 
   // saveResultsJson('articlePagesData.json', articlePagesData)
   return (
