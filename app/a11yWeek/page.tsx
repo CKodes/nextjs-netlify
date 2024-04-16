@@ -40,17 +40,7 @@ export default async function A11yWeekPage({ params }: { params: any }) {
           {/* // TODO: Shift these two p into Notion */}
           <div className="my-5">
             <p>
-              {`A11y Week is an annual learning festival hosted by GovTech’s
-              Accessibility Enabling Team that welcomes public officers involved
-              in building digital government services, to come together to
-              discuss and learn about digital accessibility and inclusive
-              design.`}
-            </p>
-            <p>
-              {`A11y Week also celebrates Global Accessibility Awareness Day — a
-              global effort to get everyone talking, thinking and learning about
-              digital access and inclusion, and we're pumped to celebrate it
-              here in sunny Singapore.`}
+              {`A11y Week is the week where Global Accessibility Awareness Day falls on. There are 11 characters between the 'A' and 'Y' in 'Accessibility', hence the name 'A11y'.`}
             </p>
           </div>
           <div className={styles.pageCardGrid}>
