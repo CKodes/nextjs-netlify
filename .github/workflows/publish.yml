@@ -18,7 +18,7 @@ on:
       environment:
         description: 'Environment to run tests against'
         type: environment
-        required: falseß
+        required: false
   push:
     branches:
       - improv/github-pages
