@@ -1,6 +1,6 @@
 name: publish-to-github-pages
 on:
-  push:
+  workflow_dispatch:
     branches:
       - improv/github-pages
 permissions:
