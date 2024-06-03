@@ -1,20 +1,22 @@
 /** @type {import('next').NextConfig} */
 
-module.exports = {
-  env: {
-    NOTION_TOKEN:
-      process.env.NOTION_TOKEN ||
-      require('dotenv').config().parsed?.NOTION_TOKEN,
-    NOTION_DATABASE_ID:
-      process.env.NOTION_DATABASE_ID ||
-      require('dotenv').config().parsed?.NOTION_DATABASE_ID,
-  },
-  distDir: 'out',
-  output: 'export',
-  basePath: '/nextjs-netlify',
-}
-/*
+// module.exports = {
+//   env: {
+//     NOTION_TOKEN:
+//       process.env.NOTION_TOKEN ||
+//       require('dotenv').config().parsed?.NOTION_TOKEN,
+//     NOTION_DATABASE_ID:
+//       process.env.NOTION_DATABASE_ID ||
+//       require('dotenv').config().parsed?.NOTION_DATABASE_ID,
+//   },
+//   distDir: 'out',
+//   output: 'export',
+//   basePath: '/nextjs-netlify',
+// }
+
 let config = {}
+
+console.log('process.argv:', process.argv)
 
 if (process.argv.includes('build')) {
   // Configuration for npm run build
@@ -44,5 +46,6 @@ if (process.argv.includes('build')) {
   }
 }
 
+console.log('config is' + JSON.stringify(config, null, 2))
+
 module.exports = config
-*/
