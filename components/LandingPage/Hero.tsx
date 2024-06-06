@@ -1,7 +1,7 @@
 'use client'
 import '@govtechsg/sgds/css/sgds.css'
 import { Button } from '@govtechsg/sgds-react/Button'
-import Image from 'next/image'
+// import Image from 'next/image'
 import styles from '../../styles/landingPage.module.css'
 interface HeroContainerProps {
   heroTitle: string
@@ -28,21 +28,19 @@ export default function HeroContainer({
                 <Button>{heroCta}</Button>
               </div>
               <div className="d-none d-sm-block">
-                <Image
+                <img
                   src={heroImage}
-                  alt=""
+                  alt="External Image"
                   width={300}
                   height={300}
-                  priority
                 />
               </div>
               <div className="d-block d-sm-none">
-                <Image
+                <img
                   src={heroImage}
-                  alt=""
-                  width={200}
-                  height={200}
-                  priority
+                  alt="External Image"
+                  width={300}
+                  height={300}
                 />
               </div>
             </div>
