@@ -52,8 +52,8 @@ export const getBlocks = async (blockID: any): Promise<any[]> => {
     return block
   })
 
-  return Promise.all(childBlocks).then((blocks) =>
-    blocks.reduce((acc, curr) => {
+  return Promise.all(childBlocks).then(async (blocks) => {
+    const acc = blocks.reduce((acc, curr) => {
       if (curr.type === 'bulleted_list_item') {
         if (acc[acc.length - 1]?.type === 'bulleted_list') {
           acc[acc.length - 1][acc[acc.length - 1].type].children?.push(curr)
@@ -77,17 +77,19 @@ export const getBlocks = async (blockID: any): Promise<any[]> => {
       } else {
         acc.push(curr)
       }
-
-      acc.forEach((obj: any, i: any) => {
-        if (obj.type === 'image' && obj.image?.file?.url) {
-          saveImage(`image${i}.png`, obj.image.file.url)
-          obj.image.file.url = `/image${i}.png`
-        }
-      })
-      saveResultsJson('acc', acc)
       return acc
     }, [])
-  )
+
+    acc.forEach(async (obj: any, i: any) => {
+      if (obj.type === 'image' && obj.image?.file?.url) {
+        saveImage(`image${i}.png`, obj.image.file.url)
+        obj.image.file.url = `/image${i}.png`
+      }
+    })
+
+    saveResultsJson('acc', acc)
+    return acc
+  })
 }
 
 function getRandomInt(minimum: number, maximum: number) {
