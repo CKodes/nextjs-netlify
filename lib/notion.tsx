@@ -86,7 +86,7 @@ export const getBlocks = async (blockID: any): Promise<any[]> => {
         const uuid = uuidv7()
         const newUrl = `/nextjs-netlify/image${i}_${uuid}.png`
 
-        saveImage(`image_${uuid}.png`, obj.image.file.url)
+        saveImage(`image${i}_${uuid}.png`, obj.image.file.url)
 
         obj.image.file.url = newUrl
       }
