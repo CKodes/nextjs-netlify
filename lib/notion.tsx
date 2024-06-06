@@ -1,7 +1,9 @@
 /* ----- This file contains the Notion API usage --- */
 
 import { Client } from '@notionhq/client'
-import { saveResultsJson, saveImage } from './saveJson'
+import { checkTestCodesFolder, saveResultsJson, saveImage } from './saveJson'
+
+checkTestCodesFolder()
 
 const databaseId = process.env.NOTION_DATABASE_ID
 
