@@ -20,7 +20,7 @@ export const saveResultsJson = (fileName: string, response: any) => {
   fs.writeFileSync(filePath, JSON.stringify({ response }, null, 2))
 }
 
-export const saveImage = async (imageUrl: string, fileName: string) => {
+export const saveImage = async (fileName: string, imageUrl: string) => {
   const publicFilePath = path.join(publicFolderPath, fileName)
 
   try {
