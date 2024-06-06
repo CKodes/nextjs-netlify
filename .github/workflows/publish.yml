@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - improv/github-pages
+      - fix/static-images-notion
   workflow_dispatch:
 
 permissions:
