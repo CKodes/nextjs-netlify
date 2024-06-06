@@ -84,11 +84,10 @@ export const getBlocks = async (blockID: any): Promise<any[]> => {
     acc.forEach(async (obj: any, i: any) => {
       if (obj.type === 'image' && obj.image?.file?.url) {
         const uuid = uuidv7()
-        const newUrl = `/nextjs-netlify/image${i}_${uuid}.png`
-
         saveImage(`image${i}_${uuid}.png`, obj.image.file.url)
-
+        const newUrl = `/nextjs-netlify/image${i}_${uuid}.png`
         obj.image.file.url = newUrl
+        // console.log('Image URL:', newUrl)
       }
     })
 
