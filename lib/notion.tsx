@@ -1,6 +1,7 @@
 /* ----- This file contains the Notion API usage --- */
 
 import { Client } from '@notionhq/client'
+import { saveResultsJson, saveImage } from './saveJson'
 
 const databaseId = process.env.NOTION_DATABASE_ID
 
@@ -74,6 +75,14 @@ export const getBlocks = async (blockID: any): Promise<any[]> => {
       } else {
         acc.push(curr)
       }
+
+      acc.forEach((obj: any, i: any) => {
+        if (obj.type === 'image' && obj.image?.file?.url) {
+          saveImage(`image${i}.png`, obj.image.file.url)
+          obj.image.file.url = `/public/image${i}.png`
+        }
+      })
+      saveResultsJson('acc', acc)
       return acc
     }, [])
   )
