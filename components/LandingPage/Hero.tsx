@@ -30,7 +30,7 @@ export default function HeroContainer({
               <div className="d-none d-sm-block">
                 <img
                   src={heroImage}
-                  alt="External Image"
+                  alt="Hero Image"
                   width={300}
                   height={300}
                 />
@@ -38,7 +38,7 @@ export default function HeroContainer({
               <div className="d-block d-sm-none">
                 <img
                   src={heroImage}
-                  alt="External Image"
+                  alt="Hero Image"
                   width={300}
                   height={300}
                 />
