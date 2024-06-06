@@ -81,7 +81,7 @@ export const getBlocks = async (blockID: any): Promise<any[]> => {
       acc.forEach((obj: any, i: any) => {
         if (obj.type === 'image' && obj.image?.file?.url) {
           saveImage(`image${i}.png`, obj.image.file.url)
-          obj.image.file.url = `/public/image${i}.png`
+          obj.image.file.url = `/image${i}.png`
         }
       })
       saveResultsJson('acc', acc)
